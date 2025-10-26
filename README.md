@@ -141,4 +141,7 @@ This project is built with:
 - Tailwind CSS
 
 
+<img width="1906" height="861" alt="image" src="https://github.com/user-attachments/assets/33b3ee92-430e-4a38-8dbe-9defe33e7b35" />
+
+
 
