@@ -28,45 +28,43 @@ npm run dev
 2. Run the following SQL to create tables and storage:
 
 ```sql
--- Notes table
 CREATE TABLE notes (
-	id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-	title text NOT NULL,
-	description text,
-	date date,
-	file_url text,
-	created_at timestamp with time zone DEFAULT now()
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  title text NOT NULL,
+  description text NOT NULL,
+  date text NOT NULL,
+  created_at timestamp DEFAULT now(),
+  updated_at timestamp
 );
 
--- Tasks table
 CREATE TABLE tasks (
-	id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-	title text NOT NULL,
-	description text,
-	deadline date,
-	created_at timestamp with time zone DEFAULT now()
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  title text NOT NULL,
+  description text,
+  deadline text NOT NULL,
+  created_at timestamp DEFAULT now(),
+  updated_at timestamp
 );
+
+ALTER TABLE notes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE tasks ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Public read notes" ON notes FOR SELECT USING (true);
+CREATE POLICY "Public insert notes" ON notes FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Public read tasks" ON tasks FOR SELECT USING (true);
+CREATE POLICY "Public insert tasks" ON tasks FOR INSERT WITH CHECK (true);
+```
+
+```sql
+ALTER TABLE notes ADD COLUMN file_url text;
+ALTER TABLE tasks ADD COLUMN file_url text;
 
 -- Allow anyone to delete notes
 CREATE POLICY "Public delete notes" ON notes FOR DELETE USING (true);
 
 -- Allow anyone to delete tasks
 CREATE POLICY "Public delete tasks" ON tasks FOR DELETE USING (true);
-
--- Public select policy
-CREATE POLICY "Public can view notes" ON notes
-	FOR SELECT USING (true);
-CREATE POLICY "Public can view tasks" ON tasks
-	FOR SELECT USING (true);
-
-ALTER TABLE notes ADD COLUMN file_url text;
-ALTER TABLE tasks ADD COLUMN file_url text;
-
--- Admin insert/delete policy (replace 'admin_password' with your password logic)
--- For static hosting, posting/deletion is gated in frontend by password only
-
--- Storage bucket policy (public read)
--- In Supabase dashboard: Storage > files > Settings > Public bucket
 ```
 # ADMIN PASS
 Classroom2025
