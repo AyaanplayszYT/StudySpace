@@ -31,12 +31,12 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={() => navigate('/auth')} className="text-lg px-8">
-              Get Started
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/dashboard')} className="text-lg px-8">
-              View as Guest
-            </Button>
+            <center>
+                          <Button size="lg" variant="outline" onClick={() => navigate('/dashboard')} className="text-lg px-8">
+                Go to Dashboard
+                          </Button>
+            </center>
+
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 pt-12">
