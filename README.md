@@ -47,19 +47,20 @@ CREATE TABLE tasks (
 	created_at timestamp with time zone DEFAULT now()
 );
 
--- Storage bucket for files
--- In Supabase dashboard: Storage > Create bucket (e.g., 'files')
+-- Allow anyone to delete notes
+CREATE POLICY "Public delete notes" ON notes FOR DELETE USING (true);
 
--- Row Level Security (RLS)
--- Enable RLS for notes and tasks tables
-ALTER TABLE notes ENABLE ROW LEVEL SECURITY;
-ALTER TABLE tasks ENABLE ROW LEVEL SECURITY;
+-- Allow anyone to delete tasks
+CREATE POLICY "Public delete tasks" ON tasks FOR DELETE USING (true);
 
 -- Public select policy
 CREATE POLICY "Public can view notes" ON notes
 	FOR SELECT USING (true);
 CREATE POLICY "Public can view tasks" ON tasks
 	FOR SELECT USING (true);
+
+ALTER TABLE notes ADD COLUMN file_url text;
+ALTER TABLE tasks ADD COLUMN file_url text;
 
 -- Admin insert/delete policy (replace 'admin_password' with your password logic)
 -- For static hosting, posting/deletion is gated in frontend by password only
