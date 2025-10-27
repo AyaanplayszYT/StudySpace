@@ -67,6 +67,8 @@ CREATE POLICY "Public can view tasks" ON tasks
 -- Storage bucket policy (public read)
 -- In Supabase dashboard: Storage > files > Settings > Public bucket
 ```
+# ADMIN PASS
+Classroom2025
 
 ## Static Hosting Instructions
 
@@ -139,6 +141,9 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+
+
+<img width="1906" height="861" alt="image" src="https://github.com/user-attachments/assets/33b3ee92-430e-4a38-8dbe-9defe33e7b35" />
 
 
 
