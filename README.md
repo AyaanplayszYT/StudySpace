@@ -67,6 +67,8 @@ CREATE POLICY "Public can view tasks" ON tasks
 -- Storage bucket policy (public read)
 -- In Supabase dashboard: Storage > files > Settings > Public bucket
 ```
+# ADMIN PASS
+Classroom2025
 
 ## Static Hosting Instructions
 
