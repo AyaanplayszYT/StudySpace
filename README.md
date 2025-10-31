@@ -141,8 +141,5 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-
-<img width="1906" height="861" alt="image" src="https://github.com/user-attachments/assets/33b3ee92-430e-4a38-8dbe-9defe33e7b35" />
-
-
+<img width="2734" height="1752" alt="studyspaceweb netlify app_" src="https://github.com/user-attachments/assets/b3b4bbde-8c3f-4c60-b664-6759d49d7ffd" />
 
